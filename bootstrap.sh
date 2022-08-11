@@ -7,4 +7,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 sudo apt-get install fonts-powerline
 
+cat ./.zshrc >> $HOME/.zshrc
+source ~/.zshrc
+
 zsh
