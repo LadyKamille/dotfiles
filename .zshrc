@@ -72,6 +72,10 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  laravel
+  thefuck
+  vscode
+  yarn
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -106,3 +110,9 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 
 # Git alias
 alias gbd="git branch -D"
+
+# Ignore PB githooks
+alias pbgco="git -c core.hooksPath=/dev/null checkout"
+alias pbgpull="git -c core.hooksPath=/dev/null pull"
+alias pbgmerge="git -c core.hooksPath=/dev/null merge"
+alias pbgrbi="git -c core.hooksPath=/dev/null rebase --interactive"
