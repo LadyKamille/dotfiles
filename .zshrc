@@ -71,6 +71,7 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  1password
   git
   laravel
   thefuck
@@ -116,3 +117,7 @@ alias pbgco="git -c core.hooksPath=/dev/null checkout"
 alias pbgpull="git -c core.hooksPath=/dev/null pull"
 alias pbgmerge="git -c core.hooksPath=/dev/null merge"
 alias pbgrbi="git -c core.hooksPath=/dev/null rebase --interactive"
+
+# Forward ports
+alias pbsocat80="socat tcp-l:80,fork,reuseaddr tcp:127.0.0.1:8080"
+alias pbsocat43="socat tcp-l:443,fork,reuseaddr tcp:127.0.0.1:8443"
