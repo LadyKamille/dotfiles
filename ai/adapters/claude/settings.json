@@ -38,6 +38,10 @@
     "mattpocock": {
       "source": { "source": "github", "repo": "mattpocock/skills" }
     },
+    "quickstop": {
+      "source": { "source": "github", "repo": "acostanzo/quickstop" },
+      "autoUpdate": true
+    },
     "worktrunk": {
       "source": { "source": "github", "repo": "max-sixty/worktrunk" }
     }
