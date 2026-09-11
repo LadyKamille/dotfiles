@@ -1,23 +1,76 @@
 {
-  // THEME
-  "workbench.colorTheme": "Dark+",
-  "debug.console.fontSize": 16,
-  "explorer.confirmDelete": false,
-  "terminal.integrated.fontSize": 16,
+  // A baseline, not a replacement: install.sh adds only the keys your
+  // machine does not already define, so local choices always win.
 
+  // Editor
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.rulers": [80, 120],
+  "editor.tabSize": 2,
+  "editor.snippetSuggestions": "top",
+  "editor.tabCompletion": "on",
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.suggest.preview": true,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.mouseWheelScrollSensitivity": 0.8,
+  "files.insertFinalNewline": true,
+
+  // Copilot and chat
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.editor.enableCodeActions": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.nextEditSuggestions.fixes": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.claudeAgent.enabled": true,
+  "github.copilot.chat.claudeAgent.allowAutoPermissions": true,
+  "github.copilot.chat.claude47OpusPrompt.enabled": true,
+  "chat.mcp.gallery.enabled": true,
+  "chat.viewSessions.orientation": "stacked",
+
+  // Formatters
+  "prettier.requireConfig": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+  
+
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "files.exclude": {
-    "**/.git": false,
-    "**/node_modules": true,
-    "node_modules": true,
-    ".idea": true,
-    "yarn.lock": true,
-    "**/dist": false
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "files.insertFinalNewline": true,
-  "security.workspace.trust.untrustedFiles": "open",
+  "[css]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.rulers": [100]
+  },
+  "[mdx]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.rulers": [100]
+  },
+  "[md]": {
+    "editor.formatOnSave": false
+  },
+
+  // Theme and display
+  "workbench.colorTheme": "Dark+",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "editorWarning.foreground": "#ff0",
@@ -46,160 +99,14 @@
     "terminal.ansiWhite": "#808080",
     "terminal.ansiYellow": "#CDCD00"
   },
-
-  // Terminal
-  "terminal.integrated.defaultProfile.linux": "zsh",
-  // "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
-
-  // EDITOR
-  "editor.formatOnSave": true,
-  "editor.mouseWheelScrollSensitivity": 0.8,
-  "editor.rulers": [80, 120],
-  "editor.snippetSuggestions": "top",
-  "editor.tabCompletion": "on",
   "editor.fontSize": 16,
-  "editor.tabSize": 2,
-  "editor.formatOnPaste": true,
-  "editor.acceptSuggestionOnEnter": "smart",
-  "editor.suggest.preview": true,
-
-  // JavaScript
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  // EsLint
-  "eslint.rules.customizations": [{ "rule": "*", "severity": "info" }],
-  "eslint.options": {
-    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
-  },
-  "eslint.validate": [
-    "markdown",
-    "mdx",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-
-  // Typescript
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
-  "typescript.tsserver.enableTracing": true,
-  "[typescript]": {
-  
-
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  // CSS
-  "[css]": {
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 100,
-    "editor.rulers": [100]
-  },
-
-  // MD & MDX
-  "[mdx]": {
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 100,
-    "editor.rulers": [100]
-  },
-  "[md]": {
-    "editor.formatOnSave": false
-  },
-
-  "cSpell.ignorePaths": ["**.json"],
+  "terminal.integrated.fontSize": 16,
+  "debug.console.fontSize": 16,
+  "window.zoomLevel": 1,
 
   // Git
   "git.autofetch": true,
-  "diffEditor.codeLens": true,
 
-  // Remote
-  "remote.SSH.defaultExtensions": [
-    "esbenp.prettier-vscode",
-    "gitpod.gitpod-remote-ssh",
-    "k--kato.intellij-idea-keybindings",
-    "mechatroner.rainbow-csv",
-    "steoates.autoimport",
-    "streetsidesoftware.code-spell-checker",
-    "xdebug.php-debug",
-    "GitHub.copilot"
-  ],
-
-  // Other
-  "redhat.telemetry.enabled": false,
-  "cSpell.enableFiletypes": ["mdx"],
-  "explorer.confirmDragAndDrop": false,
-  "editor.largeFileOptimizations": false,
-  "editor.accessibilitySupport": "off",
-  "editor.linkedEditing": true,
-  "[python]": {
-    "editor.formatOnType": false
-  },
-  "remote.SSH.enableAgentForwarding": false,
-  "remote.SSH.configFile": "~/.ssh/config",
-  "gitlens.views.searchAndCompare.pullRequests.showForCommits": false,
-  "settingsSync.ignoredSettings": [
-    "configurationSync.store"
-  ],
-  "githubPullRequests.pullBranch": "never",
-  "editor.inlineSuggest.enabled": true,
-  "remote.SSH.remotePlatform": {
-    "*.gitpod.io": "linux",
-    "*.gitpod.local": "linux",
-    "*.gitpod.remote": "linux"
-  },
-  "nxConsole.showNodeVersionOnStartup": false,
-  "github.copilot.editor.enableCodeActions": false,
-  "svg.preview.mode": "img",
-  "eslint.ignoreUntitled": true,
-  "editor.minimap.enabled": false,
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "github.copilot.editor.enableAutoCompletions": true,
-  "prettier.requireConfig": true,
-  "window.zoomLevel": 1,
-  "dev.containers.defaultExtensions": [
-    "gitpod.gitpod-remote-ssh"
-  ],
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "github.copilot.nextEditSuggestions.fixes": true,
-  "github.copilot.chat.codesearch.enabled": true,
-  "github.copilot.chat.agent.thinkingTool": true,
-  "github.copilot.chat.claudeAgent.enabled": true,
-  "search.followSymlinks": false,
-  "[dockercompose]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": "advanced",
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-  "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-  "chat.mcp.gallery.enabled": true,
-  "chat.viewSessions.orientation": "stacked",
-  "dev.containers.experimentalMountGitWorktreeCommonDir": true,
-  "github.copilot.chat.claudeAgent.allowAutoPermissions": true,
-  "github.copilot.chat.claude47OpusPrompt.enabled": true,
-  "workbench.browser.openLocalhostLinks": true,
-  "workbench.browser.enableChatTools": true,
-  "sonarlint.automaticAnalysis": false,
-  "[scss]": {
-    "editor.suggest.insertMode": "replace",
-    "cSpell.fixSpellingWithRenameProvider": false
-  }
+  // Telemetry
+  "redhat.telemetry.enabled": false
 }

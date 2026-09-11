@@ -10,9 +10,13 @@ REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 link "$REPO/git/config" "$HOME/.gitconfig"
 link "$REPO/git/ignore" "$HOME/.config/git/ignore"
 
-# VS Code; its Copilot chat settings ride along with the editor preferences
+# VS Code has no overlay file for user settings, so the tracked file is a
+# baseline that gets merged in: only keys the machine does not already define
+# are added, and nothing local is replaced
 VSCODE_USER="$HOME/Library/Application Support/Code/User"
-[ -d "$VSCODE_USER" ] && link "$REPO/vscode/settings.json" "$VSCODE_USER/settings.json"
+if [ -d "$VSCODE_USER" ]; then
+  python3 "$REPO/lib/merge-jsonc.py" "$REPO/vscode/settings.json" "$VSCODE_USER/settings.json" "$DRY_RUN"
+fi
 
 # worktrunk: seed the portable settings without clobbering local hooks
 [ -d "$HOME/.config/worktrunk" ] && link_if_absent "$REPO/worktrunk/config.toml" "$HOME/.config/worktrunk/config.toml"

@@ -8,11 +8,11 @@ Personal shell and AI-agent configuration.
 | `Brewfile` | Personal macOS toolchain, installed by `bootstrap.sh` via `brew bundle`. Work-only tools stay off it. |
 | `bootstrap.sh` | First-run shell setup for macOS (Homebrew) or Debian/Ubuntu (apt): installs zsh, oh-my-zsh, the two zsh plugins, a powerline font, and gitleaks, then links `.zshrc`. |
 | `ai/` | Agent-agnostic instructions, skills, and per-agent settings. See [ai/README.md](ai/README.md). |
-| `vscode/` | VS Code user settings, including the Copilot chat keys. |
+| `vscode/` | A baseline of VS Code settings, including the Copilot chat keys. Merged into the machine's own `settings.json`, never linked over it. |
 | `worktrunk/` | Worktree path layout and the post-switch log hook; seeded only where no worktrunk config exists. |
 | `git/` | Global git identity and the global gitignore (`~/.gitconfig`, `~/.config/git/ignore`). |
 | `hooks/` | `pre-commit`, which blocks a commit whose staged changes look like a credential. Needs `gitleaks`. |
-| `lib/` | Symlink helpers shared by the two installers. |
+| `lib/` | Symlink helpers shared by the two installers, plus the additive JSONC merge used for VS Code. |
 
 ## Setup
 
@@ -33,6 +33,15 @@ separate and touches neither.
 The hook is installed into this repo's `.git/hooks` only — `core.hooksPath`
 stays untouched so other repos keep their own hooks. Without `gitleaks` on
 PATH the hook passes everything and says so.
+
+## VS Code settings are merged, not linked
+
+VS Code has a single user `settings.json` and no overlay file, so linking it
+would replace whatever a machine already has. `install.sh` instead adds only the
+baseline keys that are absent, leaving every local value and the file's own
+comments alone, and keeps a timestamped copy beside the original. The tradeoff
+is one-directional: settings changed in VS Code do not flow back here, so add
+anything worth keeping to `vscode/settings.json` yourself.
 
 ## Machine-specific shell settings
 
