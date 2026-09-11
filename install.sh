@@ -10,6 +10,13 @@ REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 link "$REPO/git/config" "$HOME/.gitconfig"
 link "$REPO/git/ignore" "$HOME/.config/git/ignore"
 
+# VS Code; its Copilot chat settings ride along with the editor preferences
+VSCODE_USER="$HOME/Library/Application Support/Code/User"
+[ -d "$VSCODE_USER" ] && link "$REPO/vscode/settings.json" "$VSCODE_USER/settings.json"
+
+# worktrunk: seed the portable settings without clobbering local hooks
+[ -d "$HOME/.config/worktrunk" ] && link_if_absent "$REPO/worktrunk/config.toml" "$HOME/.config/worktrunk/config.toml"
+
 # Secret scanning for this repo's own commits; core.hooksPath is left alone so
 # other repos keep their own hooks
 if [ -d "$REPO/.git" ]; then

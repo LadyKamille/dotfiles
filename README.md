@@ -7,6 +7,8 @@ Personal shell and AI-agent configuration.
 | `.zshrc` | oh-my-zsh config: `agnoster` theme, plugins, and aliases — hook-free git wrappers (`pbgco`, `pbgpull`, `pbgmerge`, `pbgrbi`), `socat` port forwards, `gbd`. |
 | `bootstrap.sh` | First-run shell setup for macOS (Homebrew) or Debian/Ubuntu (apt): installs zsh, oh-my-zsh, the two zsh plugins, a powerline font, and gitleaks, then links `.zshrc`. |
 | `ai/` | Agent-agnostic instructions, skills, and per-agent settings. See [ai/README.md](ai/README.md). |
+| `vscode/` | VS Code user settings, including the Copilot chat keys. |
+| `worktrunk/` | Worktree path layout and the post-switch log hook; seeded only where no worktrunk config exists. |
 | `git/` | Global git identity and the global gitignore (`~/.gitconfig`, `~/.config/git/ignore`). |
 | `hooks/` | `pre-commit`, which blocks a commit whose staged changes look like a credential. Needs `gitleaks`. |
 | `lib/` | Symlink helpers shared by the two installers. |
