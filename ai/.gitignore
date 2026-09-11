@@ -1,0 +1,3 @@
+# machine-local overlays, seeded from *.example.json
+adapters/*/settings.local.json
+.DS_Store
