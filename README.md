@@ -5,6 +5,7 @@ Personal shell and AI-agent configuration.
 | Path | What it is |
 | --- | --- |
 | `.zshrc` | oh-my-zsh config: `agnoster` theme, plugins, and aliases — hook-free git wrappers (`pbgco`, `pbgpull`, `pbgmerge`, `pbgrbi`), `socat` port forwards, `gbd`. |
+| `Brewfile` | Personal macOS toolchain, installed by `bootstrap.sh` via `brew bundle`. Work-only tools stay off it. |
 | `bootstrap.sh` | First-run shell setup for macOS (Homebrew) or Debian/Ubuntu (apt): installs zsh, oh-my-zsh, the two zsh plugins, a powerline font, and gitleaks, then links `.zshrc`. |
 | `ai/` | Agent-agnostic instructions, skills, and per-agent settings. See [ai/README.md](ai/README.md). |
 | `vscode/` | VS Code user settings, including the Copilot chat keys. |

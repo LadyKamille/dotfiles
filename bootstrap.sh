@@ -32,20 +32,11 @@ install_packages() {
       log "Homebrew is required: https://brew.sh"
       exit 1
     fi
-    # macOS ships zsh, git and curl; only install what is actually missing
-    for pkg in zsh git curl gitleaks; do
-      if command -v "$pkg" >/dev/null 2>&1; then
-        log "ok    $pkg"
-      else
-        run brew install "$pkg"
-      fi
+    # macOS ships zsh, git and curl; everything else comes from the Brewfile
+    for pkg in zsh git curl; do
+      command -v "$pkg" >/dev/null 2>&1 && log "ok    $pkg" || run brew install "$pkg"
     done
-    # Nerd Font for the agnoster theme's glyphs
-    if brew list --cask font-meslo-lg-nerd-font >/dev/null 2>&1; then
-      log "ok    font-meslo-lg-nerd-font"
-    else
-      run brew install --cask font-meslo-lg-nerd-font || log "warn  font install failed; not fatal"
-    fi
+    run brew bundle --file="$REPO/Brewfile"
     return
   fi
 
@@ -54,8 +45,9 @@ install_packages() {
     return
   fi
   run sudo apt-get update
-  run sudo apt-get install -y zsh git curl fonts-powerline
-  command -v gitleaks >/dev/null 2>&1 || log "warn  gitleaks not in apt on older releases; see github.com/gitleaks/gitleaks"
+  run sudo apt-get install -y zsh git curl jq fonts-powerline
+  # The Brewfile is macOS-only; the rest of that toolchain is installed per machine
+  command -v gitleaks >/dev/null 2>&1 || log "warn  gitleaks missing; the pre-commit scan will pass everything (see github.com/gitleaks/gitleaks)"
 }
 
 install_oh_my_zsh() {
