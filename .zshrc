@@ -111,3 +111,6 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 alias gbd="git branch -D"
 alias gprune-list='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}"'
 alias gprune='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}" | xargs git branch -d'
+
+# Machine-specific settings: PATH entries, tokens, per-host tweaks
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
