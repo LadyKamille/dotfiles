@@ -122,19 +122,6 @@
     "editor.formatOnSave": false
   },
 
-  // Ruby
-  // "ruby.useLanguageServer": true, // use the internal language server (see below)
-  // "ruby.lint": {
-  //   "rubocop": {
-  //     "useBundler": true // enable rubocop via bundler
-  //   }
-  // },
-  // "ruby.format": "rubocop", // use rubocop for formatting
-  // "ruby.rubocop.onSave": true,
-  // "ruby.rubocop.executePath": "/Users/kamillenorris/.asdf/shims/",
-  // "ruby.rubocop.useBundler": false,
-  // "ruby.intellisense": "rubyLocate",
-
   "cSpell.userWords": [
     "Braintree",
     "clup",
@@ -188,24 +175,19 @@
     "editor.formatOnType": false
   },
   "remote.SSH.enableAgentForwarding": false,
-  "remote.SSH.configFile": "Users/kamillenorris/.ssh/config",
+  "remote.SSH.configFile": "~/.ssh/config",
   "gitlens.views.searchAndCompare.pullRequests.showForCommits": false,
   "settingsSync.ignoredSettings": [
     "configurationSync.store"
   ],
   "githubPullRequests.pullBranch": "never",
   "editor.inlineSuggest.enabled": true,
-  "codesandbox.currentWorkspace": "eeb45e73-21fa-42a5-9d5b-01b2af7357f0",
   "remote.SSH.remotePlatform": {
-    "sandbox.p9qrrx.csb": "linux",
     "*.gitpod.io": "linux",
-    "sandbox.ndjwwp.csb": "linux",
     "*.gitpod.local": "linux",
-    "*.gitpod.remote": "linux",
-    "sandbox.sgg3zq.csb": "linux"
+    "*.gitpod.remote": "linux"
   },
   "nxConsole.showNodeVersionOnStartup": false,
-  "Key Promoter.loyaltyLevel": 2,
   "github.copilot.editor.enableCodeActions": false,
   "svg.preview.mode": "img",
   "eslint.ignoreUntitled": true,
