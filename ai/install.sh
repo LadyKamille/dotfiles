@@ -73,6 +73,10 @@ fi
 # personal skills from ~/.agents/skills, linked above
 [ -d "$HOME/.copilot" ] && link "$REPO/AGENTS.md" "$HOME/.copilot/copilot-instructions.md"
 
+# VS Code, where the Copilot chat settings also live
+VSCODE_USER="$HOME/Library/Application Support/Code/User"
+[ -d "$VSCODE_USER" ] && link "$REPO/adapters/vscode/settings.json" "$VSCODE_USER/settings.json"
+
 # worktrunk: seed the portable settings without clobbering local hooks
 [ -d "$HOME/.config/worktrunk" ] && link_if_absent "$REPO/adapters/worktrunk/config.toml" "$HOME/.config/worktrunk/config.toml"
 

@@ -1,0 +1,250 @@
+{
+  // THEME
+  "workbench.colorTheme": "Dark+",
+  "debug.console.fontSize": 16,
+  "explorer.confirmDelete": false,
+  "terminal.integrated.fontSize": 16,
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.exclude": {
+    "**/.git": false,
+    "**/node_modules": true,
+    "node_modules": true,
+    ".idea": true,
+    "yarn.lock": true,
+    "../.angular/cache": true,
+    "**/dist": false,
+    "../venv": true
+  },
+  "files.insertFinalNewline": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {
+    "editorWarning.foreground": "#ff0",
+    "editorInfo.foreground": "#00f",
+    "statusBar.background": "#1A1A1A",
+    "statusBar.noFolderBackground": "#212121",
+    "statusBar.debuggingBackground": "#FF4050",
+    "terminal.background": "#121419",
+    "terminal.foreground": "#BBC3C3",
+    "terminalCursor.background": "#BBC3C3",
+    "terminalCursor.foreground": "#BBC3C3",
+    "terminal.ansiBlack": "#000",
+    "terminal.ansiBlue": "#3993D4",
+    "terminal.ansiBrightBlack": "#595959",
+    "terminal.ansiBrightBlue": "#1FB0FF",
+    "terminal.ansiBrightCyan": "#00E5E5",
+    "terminal.ansiBrightGreen": "#70FF70",
+    "terminal.ansiBrightMagenta": "#ED7EED",
+    "terminal.ansiBrightRed": "#FF4050",
+    "terminal.ansiBrightWhite": "#F8F8F0",
+    "terminal.ansiBrightYellow": "#E5BF00",
+    "terminal.ansiCyan": "#8BA59B",
+    "terminal.ansiGreen": "#007F00",
+    "terminal.ansiMagenta": "#FF70FF",
+    "terminal.ansiRed": "#F0524F",
+    "terminal.ansiWhite": "#808080",
+    "terminal.ansiYellow": "#CDCD00"
+  },
+
+  // Terminal
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  // "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+
+  // EDITOR
+  "editor.formatOnSave": true,
+  "editor.mouseWheelScrollSensitivity": 0.8,
+  "editor.rulers": [80, 120],
+  "editor.snippetSuggestions": "top",
+  "editor.tabCompletion": "on",
+  "editor.fontSize": 16,
+  "editor.tabSize": 2,
+  "editor.formatOnPaste": true,
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.suggest.preview": true,
+
+  // JavaScript
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // EsLint
+  "eslint.rules.customizations": [{ "rule": "*", "severity": "info" }],
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+  },
+  "eslint.validate": [
+    "markdown",
+    "mdx",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  // Typescript
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "typescript.tsserver.enableTracing": true,
+  "[typescript]": {
+  
+
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // CSS
+  "[css]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.rulers": [100]
+  },
+
+  // MD & MDX
+  "[mdx]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "editor.rulers": [100]
+  },
+  "[md]": {
+    "editor.formatOnSave": false
+  },
+
+  // Ruby
+  // "ruby.useLanguageServer": true, // use the internal language server (see below)
+  // "ruby.lint": {
+  //   "rubocop": {
+  //     "useBundler": true // enable rubocop via bundler
+  //   }
+  // },
+  // "ruby.format": "rubocop", // use rubocop for formatting
+  // "ruby.rubocop.onSave": true,
+  // "ruby.rubocop.executePath": "/Users/kamillenorris/.asdf/shims/",
+  // "ruby.rubocop.useBundler": false,
+  // "ruby.intellisense": "rubyLocate",
+
+  "cSpell.userWords": [
+    "Braintree",
+    "clup",
+    "Gradebook",
+    "IPBQ",
+    "launchdarkly",
+    "Lightdash",
+    "Moodle",
+    "packback",
+    "Pageable",
+    "pallete",
+    "phpstan",
+    "Previewable",
+    "reorderable",
+    "Seafoam",
+    "Subcomment",
+    "Subcomments",
+    "sublist",
+    "Templatable",
+    "testid",
+    "titlecase",
+    "Tsugi",
+    "writinglab"
+  ],
+  "cSpell.ignorePaths": ["**.json"],
+
+  // Git
+  "git.autofetch": true,
+  "diffEditor.codeLens": true,
+
+  // Remote
+  "remote.SSH.defaultExtensions": [
+    "esbenp.prettier-vscode",
+    "gitpod.gitpod-remote-ssh",
+    "k--kato.intellij-idea-keybindings",
+    "mechatroner.rainbow-csv",
+    "steoates.autoimport",
+    "streetsidesoftware.code-spell-checker",
+    "xdebug.php-debug",
+    "GitHub.copilot"
+  ],
+
+  // Other
+  "redhat.telemetry.enabled": false,
+  "cSpell.enableFiletypes": ["mdx"],
+  "explorer.confirmDragAndDrop": false,
+  "editor.largeFileOptimizations": false,
+  "editor.accessibilitySupport": "off",
+  "editor.linkedEditing": true,
+  "[python]": {
+    "editor.formatOnType": false
+  },
+  "remote.SSH.enableAgentForwarding": false,
+  "remote.SSH.configFile": "Users/kamillenorris/.ssh/config",
+  "gitlens.views.searchAndCompare.pullRequests.showForCommits": false,
+  "settingsSync.ignoredSettings": [
+    "configurationSync.store"
+  ],
+  "githubPullRequests.pullBranch": "never",
+  "editor.inlineSuggest.enabled": true,
+  "codesandbox.currentWorkspace": "eeb45e73-21fa-42a5-9d5b-01b2af7357f0",
+  "remote.SSH.remotePlatform": {
+    "sandbox.p9qrrx.csb": "linux",
+    "*.gitpod.io": "linux",
+    "sandbox.ndjwwp.csb": "linux",
+    "*.gitpod.local": "linux",
+    "*.gitpod.remote": "linux",
+    "sandbox.sgg3zq.csb": "linux"
+  },
+  "nxConsole.showNodeVersionOnStartup": false,
+  "Key Promoter.loyaltyLevel": 2,
+  "github.copilot.editor.enableCodeActions": false,
+  "svg.preview.mode": "img",
+  "eslint.ignoreUntitled": true,
+  "editor.minimap.enabled": false,
+  "phpstan.singleFileMode": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "prettier.requireConfig": true,
+  "window.zoomLevel": 1,
+  "dev.containers.defaultExtensions": [
+    "gitpod.gitpod-remote-ssh"
+  ],
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.nextEditSuggestions.fixes": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.claudeAgent.enabled": true,
+  "search.followSymlinks": false,
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "chat.mcp.gallery.enabled": true,
+  "chat.viewSessions.orientation": "stacked",
+  "dev.containers.experimentalMountGitWorktreeCommonDir": true,
+  "github.copilot.chat.claudeAgent.allowAutoPermissions": true,
+  "github.copilot.chat.claude47OpusPrompt.enabled": true,
+  "workbench.browser.openLocalhostLinks": true,
+  "workbench.browser.enableChatTools": true,
+  "sonarlint.automaticAnalysis": false,
+  "[scss]": {
+    "editor.suggest.insertMode": "replace",
+    "cSpell.fixSpellingWithRenameProvider": false
+  }
+}
