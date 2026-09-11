@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Blocks commits whose staged changes contain anything shaped like a credential.
+set -uo pipefail
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  printf 'gitleaks not installed; staged changes were NOT scanned (brew install gitleaks)\n' >&2
+  exit 0
+fi
+
+if ! gitleaks git --staged --no-banner --redact; then
+  printf '\nCommit blocked: staged changes look like they contain a secret.\n' >&2
+  printf 'Move it to an untracked file or a secrets manager, or annotate the line\n' >&2
+  printf 'with a gitleaks:allow comment if it is genuinely not a credential.\n' >&2
+  exit 1
+fi

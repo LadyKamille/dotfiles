@@ -4,30 +4,14 @@
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-STAMP="$(date +%Y%m%d%H%M%S)"
-DRY_RUN="${DRY_RUN:-0}"
-# Backups go outside every directory an agent scans; a .bak left next to a
-# SKILL.md is discovered as a second copy of the skill
-BACKUP_DIR="${BACKUP_DIR:-$HOME/.agent-config-backups}"
-
-log() { printf '%s\n' "$*"; }
+# shellcheck source=../lib/link.sh
+. "$REPO/../lib/link.sh"
 
 # Skills vendored as submodules are symlinks into ai/vendor; a missing checkout
 # leaves those links dangling
 if [ -f "$REPO/../.gitmodules" ] && [ -z "$(ls -A "$REPO/vendor/explain-diff" 2>/dev/null)" ]; then
   log "warn  ai/vendor/explain-diff is empty; run: git submodule update --init --recursive"
 fi
-
-# Seeds a target only when nothing is there, for config an agent or tool may
-# extend with machine-specific content
-link_if_absent() {
-  local src="$1" dest="$2"
-  if [ -e "$dest" ] || [ -L "$dest" ]; then
-    log "skip  $dest (exists; left alone)"
-    return
-  fi
-  link "$src" "$dest"
-}
 
 link() {
   local src="$1" dest="$2"
