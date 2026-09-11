@@ -3,10 +3,6 @@
 # Coding Standards
 - Prefer descriptive variable and method names to comments. Comments should only be used for doc blocks, describing business logic, or explaining complex logic.
 - Comments (including doc blocks) are written for a future reviewer reading the code cold — keep them additive and about the code itself. Don't narrate the change, the conversation that produced it, or which existing pattern it mirrors; that history belongs in the PR or an ADR.
-- Never explain a change as upgrade history ("library vN now does X", "rather than the old pattern"). Version and migration rationale goes in the commit message or PR, not the source. Keep comments behavioral and version-agnostic.
-- Name config fields and component inputs after the behavior or intent, not the UI element they happen to render to — the concept may surface in more than one place.
-- When splitting a type, name it by the real distinction (e.g. authored per environment vs computed at runtime), not a static/dynamic label that doesn't hold for every field. A misleading type name is worse than the inline intersection it replaces.
-- Write the implementation first and add imports in a final pass — not the reverse.
 
 # Safety
 - Only make GET requests against external APIs unless I ask otherwise. If a task seems to need a write, ask first.
