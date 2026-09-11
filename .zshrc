@@ -110,6 +110,7 @@ export PATH="$PATH:$HOME/.local/bin"
 # Example aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
+alias zshlocal="code ~/.zshrc.local"
 
 # Git alias
 alias gbd="git branch -D"
