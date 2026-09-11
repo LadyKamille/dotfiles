@@ -22,7 +22,8 @@ DRY_RUN=1 ./install.sh                    # print what would change
 ./install.sh                              # link it
 ```
 
-Anything already at a target path is moved to `<path>.bak-<timestamp>` first.
+Anything already at a target path is moved into `~/.agent-config-backups/` first.
+Rerunning is a no-op.
 
 ## Keeping work config out of a public repo
 

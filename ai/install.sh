@@ -6,6 +6,9 @@ set -euo pipefail
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 STAMP="$(date +%Y%m%d%H%M%S)"
 DRY_RUN="${DRY_RUN:-0}"
+# Backups go outside every directory an agent scans; a .bak left next to a
+# SKILL.md is discovered as a second copy of the skill
+BACKUP_DIR="${BACKUP_DIR:-$HOME/.agent-config-backups}"
 
 log() { printf '%s\n' "$*"; }
 
@@ -28,8 +31,10 @@ link() {
   fi
   mkdir -p "$(dirname "$dest")"
   if [ -e "$dest" ] || [ -L "$dest" ]; then
-    mv "$dest" "$dest.bak-$STAMP"
-    log "backup $dest -> $dest.bak-$STAMP"
+    local backup="$BACKUP_DIR/$(printf '%s' "${dest#$HOME/}" | tr '/' '_').bak-$STAMP"
+    mkdir -p "$BACKUP_DIR"
+    mv "$dest" "$backup"
+    log "backup $dest -> $backup"
   fi
   ln -s "$src" "$dest"
   log "link  $dest -> $src"
@@ -43,6 +48,14 @@ if [ -d "$HOME/.claude" ] || command -v claude >/dev/null 2>&1; then
   link "$REPO/AGENTS.md" "$HOME/.claude/CLAUDE.md"
   link "$REPO/adapters/claude/settings.json" "$HOME/.claude/settings.json"
   link "$REPO/adapters/claude/statusline.sh" "$HOME/.claude/statusline.sh"
+
+  # Claude Code discovers skills under ~/.claude/skills, so point one link per
+  # skill at the shared store
+  for skill in "$REPO"/skills/*/; do
+    [ -d "$skill" ] || continue
+    name="$(basename "$skill")"
+    link "$HOME/.agents/skills/$name" "$HOME/.claude/skills/$name"
+  done
 fi
 
 # Copilot CLI reads personal instructions from copilot-instructions.md and
