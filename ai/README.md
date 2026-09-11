@@ -13,6 +13,7 @@ already staged in git.
 | `vendor/` | Submodules for skills authored elsewhere; `skills/` holds symlinks into them rather than copies. |
 | `prompts/` | Reusable prompt snippets, referenced from skills or pasted by hand. |
 | `adapters/claude/` | Claude Code settings and statusline. |
+| `adapters/herdr/` | herdr's `config.toml`, plus the plugin set to reinstall by source. |
 
 ## Install
 

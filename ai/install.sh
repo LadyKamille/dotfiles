@@ -62,6 +62,9 @@ fi
 # personal skills from ~/.agents/skills, linked above
 [ -d "$HOME/.copilot" ] && link "$REPO/AGENTS.md" "$HOME/.copilot/copilot-instructions.md"
 
+# herdr keeps one hand-authored file; the rest of its config dir is generated
+[ -d "$HOME/.config/herdr" ] && link "$REPO/adapters/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+
 # Cursor reads AGENTS.md directly
 [ -d "$HOME/.cursor" ] && link "$REPO/AGENTS.md" "$HOME/.cursor/AGENTS.md"
 
