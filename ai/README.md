@@ -14,6 +14,7 @@ already staged in git.
 | `prompts/` | Reusable prompt snippets, referenced from skills or pasted by hand. |
 | `adapters/claude/` | Claude Code settings and statusline. |
 | `adapters/herdr/` | herdr's `config.toml`, plus the plugin set to reinstall by source. |
+| `adapters/worktrunk/` | Worktree path layout and the post-switch log hook; seeded only on a machine with no worktrunk config. |
 
 ## Install
 

@@ -18,6 +18,17 @@ if [ -f "$REPO/../.gitmodules" ] && [ -z "$(ls -A "$REPO/vendor/explain-diff" 2>
   log "warn  ai/vendor/explain-diff is empty; run: git submodule update --init --recursive"
 fi
 
+# Seeds a target only when nothing is there, for config an agent or tool may
+# extend with machine-specific content
+link_if_absent() {
+  local src="$1" dest="$2"
+  if [ -e "$dest" ] || [ -L "$dest" ]; then
+    log "skip  $dest (exists; left alone)"
+    return
+  fi
+  link "$src" "$dest"
+}
+
 link() {
   local src="$1" dest="$2"
   [ -e "$src" ] || { log "skip  $dest (missing source)"; return; }
@@ -61,6 +72,9 @@ fi
 # Copilot CLI reads personal instructions from copilot-instructions.md and
 # personal skills from ~/.agents/skills, linked above
 [ -d "$HOME/.copilot" ] && link "$REPO/AGENTS.md" "$HOME/.copilot/copilot-instructions.md"
+
+# worktrunk: seed the portable settings without clobbering local hooks
+[ -d "$HOME/.config/worktrunk" ] && link_if_absent "$REPO/adapters/worktrunk/config.toml" "$HOME/.config/worktrunk/config.toml"
 
 # herdr keeps one hand-authored file; the rest of its config dir is generated
 [ -d "$HOME/.config/herdr" ] && link "$REPO/adapters/herdr/config.toml" "$HOME/.config/herdr/config.toml"

@@ -1,0 +1,15 @@
+worktree-path = "{{ repo_path }}/../{{ repo }}-{{ branch | sanitize }}"
+
+[post-switch]
+show_logs = """
+GIT_COMMON_DIR="$(git rev-parse --git-common-dir)"
+LOGS_DIR="$GIT_COMMON_DIR/wt/logs"
+active_logs=""
+for log in "$LOGS_DIR/{{ branch | sanitize }}-docker.log" "$LOGS_DIR/{{ branch | sanitize }}-devcontainer.log" "$LOGS_DIR/{{ branch | sanitize }}-frontend-install.log"; do
+  [ -f "$log" ] && active_logs="$active_logs $log"
+done
+if [ -n "$active_logs" ]; then
+  echo "Worktree logs (run 'wtlogs' to tail):"
+  for log in $active_logs; do echo "  $log"; done
+fi
+"""
