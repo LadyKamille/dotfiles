@@ -14,9 +14,7 @@
     "node_modules": true,
     ".idea": true,
     "yarn.lock": true,
-    "../.angular/cache": true,
-    "**/dist": false,
-    "../venv": true
+    "**/dist": false
   },
   "files.insertFinalNewline": true,
   "security.workspace.trust.untrustedFiles": "open",
@@ -122,30 +120,6 @@
     "editor.formatOnSave": false
   },
 
-  "cSpell.userWords": [
-    "Braintree",
-    "clup",
-    "Gradebook",
-    "IPBQ",
-    "launchdarkly",
-    "Lightdash",
-    "Moodle",
-    "packback",
-    "Pageable",
-    "pallete",
-    "phpstan",
-    "Previewable",
-    "reorderable",
-    "Seafoam",
-    "Subcomment",
-    "Subcomments",
-    "sublist",
-    "Templatable",
-    "testid",
-    "titlecase",
-    "Tsugi",
-    "writinglab"
-  ],
   "cSpell.ignorePaths": ["**.json"],
 
   // Git
@@ -192,7 +166,6 @@
   "svg.preview.mode": "img",
   "eslint.ignoreUntitled": true,
   "editor.minimap.enabled": false,
-  "phpstan.singleFileMode": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
