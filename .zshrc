@@ -73,8 +73,6 @@ ZSH_THEME="agnoster"
 plugins=(
   1password
   git
-  laravel
-  thefuck
   vscode
   yarn
   zsh-autosuggestions
@@ -111,13 +109,5 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 
 # Git alias
 alias gbd="git branch -D"
-
-# Ignore PB githooks
-alias pbgco="git -c core.hooksPath=/dev/null checkout"
-alias pbgpull="git -c core.hooksPath=/dev/null pull"
-alias pbgmerge="git -c core.hooksPath=/dev/null merge"
-alias pbgrbi="git -c core.hooksPath=/dev/null rebase --interactive"
-
-# Forward ports
-alias pbsocat80="socat tcp-l:80,fork,reuseaddr tcp:127.0.0.1:8080"
-alias pbsocat43="socat tcp-l:443,fork,reuseaddr tcp:127.0.0.1:8443"
+alias gprune-list='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}"'
+alias gprune='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}" | xargs git branch -d'
