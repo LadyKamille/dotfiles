@@ -79,7 +79,11 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+export DEFAULT_USER=$USER
+
 source $ZSH/oh-my-zsh.sh
+
+export PATH="$PATH:$HOME/.local/bin"
 
 # User configuration
 
@@ -112,5 +116,20 @@ alias gbd="git branch -D"
 alias gprune-list='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}"'
 alias gprune='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}" | xargs git branch -d'
 
+# Worktrees
+alias wsc='wt switch --create --execute=claude'
+
+wtlogs() {
+  local branch="${1:-$(git rev-parse --abbrev-ref HEAD 2>/dev/null)}"
+  local logs_dir="$(git rev-parse --git-common-dir 2>/dev/null)/wt/logs"
+  local branch_safe="${branch//\//-}"
+  tail -f "$logs_dir/${branch_safe}-docker.log" "$logs_dir/${branch_safe}-devcontainer.log" "$logs_dir/${branch_safe}-frontend-install.log" 2>/dev/null
+}
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
 # Machine-specific settings: PATH entries, tokens, per-host tweaks
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# After the local file, which may add to fpath
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
